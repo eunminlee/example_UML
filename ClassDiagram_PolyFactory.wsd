@@ -1,0 +1,32 @@
+@startuml
+skinparam classAttributeIconSize 0
+class Menu{
+    {abstract}+createCupOrNull(CupSize): Cup
+}
+class AmericanMenu{
+    +createCupOrNull(Cupsize): Cup
+}
+class KoreanMenu{
+    +createCupOrNull(CupSize): CUp
+}
+class Cup{
+    +sizeMl: int
+    #Cup(int)
+    +getsize(): int
+}
+class PaperCup{
+    -lid : Lid
+    -PaperCup(int, Lid)
+}
+class GlassCup{
+    -GlassCup(int)
+}
+Menu<|--AmericanMenu
+Menu<|--KoreanMenu
+AmericanMenu .right.> PaperCup:create
+KoreanMenu .right.> GlassCup:create
+Cup<|--PaperCup
+Cup<|--GlassCup
+' PaperCup--|>Cup
+' GlassCup--|>Cup
+@enduml

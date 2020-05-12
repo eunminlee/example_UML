@@ -1,0 +1,12 @@
+@startuml
+skinparam classAttributeIconSize 0
+class GraphicsResourceManager{
+        {static}-instance GraphicsResourceManager
+        -GraphicsResourceManager(FileLoader, GraphicsDevice)
+        {static}+createInstance(FileLoader, GraphicsDevice)
+        {static}+deleteInstance()
+        {static}+getInstance() : GraphicsResourceManager
+
+    }
+@enduml
+

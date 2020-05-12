@@ -1,0 +1,26 @@
+@startuml
+skinparam classAttributeIconSize 0
+class GameObject{
+        -name: String
+        -components: ArrayList<Component>
+        +GameObject(String)
+        +addComponent(Component)
+        +update()
+}
+class Component{
+    +update()
+}
+class EntityComponent{
+}
+class PhysicsComponent{
+}
+class AiComponent{
+}
+class ControllableComponent{
+}
+GameObject "0..*" *-- "1..*" Component
+Component <|--EntityComponent
+Component <|--PhysicsComponent
+Component <|--AiComponent
+Component <|--ControllableComponent
+@enduml

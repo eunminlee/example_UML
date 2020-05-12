@@ -1,0 +1,29 @@
+@startuml
+skinparam classAttributeIconSize 0
+class csvReader{
+    -csvText: String
+    +CsvReader(String)
+    +writeTo(TableBuilder)
+}
+class TableBuilder{
+    +addHeadingRow()
+    +addRow()
+    +addColumn(String)
+}
+class MarkdownTableBuilder{
+    +addHeadingRow()
+    +addRow()
+    +addColumn(String)
+    +toMarkDownText(): String
+}
+class HtmlTableBuilder{
+    +addHeadingRow()
+    +addRow()
+    +addColumn(String)
+    +toHtmlDocument(): HtmlDocument
+}
+csvReader .right.> TableBuilder: use
+TableBuilder<|--MarkdownTableBuilder
+TableBuilder<|--HtmlTableBuilder
+
+@enduml

@@ -1,0 +1,47 @@
+@startuml MarkdownTableBuilder
+participant program order 10
+participant reader order 25
+participant builder order 30
+
+activate program
+
+program --> builder : New MarkdownTableBuilder()
+activate builder
+deactivate builder
+
+program --> reader : New CsvReader(csvText)
+activate reader
+deactivate reader
+
+program -> reader : writeTo(builder)
+activate reader
+
+
+reader -> builder : addHeadingRow()
+activate builder
+deactivate builder
+loop for each column
+
+    reader -> builder : addColumn(text)
+    activate builder
+    deactivate builder
+end
+loop for each row
+    
+    reader -> builder : addRow()
+    activate builder
+    deactivate builder
+    loop for each row
+        
+        reader -> builder : addColumn(text)
+        activate builder
+        deactivate builder
+    end
+end
+deactivate reader
+
+program -> builder : toMarkdownText()
+activate builder
+deactivate builder
+deactivate program
+@enduml
