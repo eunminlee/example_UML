@@ -42,6 +42,8 @@ deactivate reader
 
 program -> builder : toMarkdownText()
 activate builder
+builder --> program : text
 deactivate builder
+
 deactivate program
 @enduml

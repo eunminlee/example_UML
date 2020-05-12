@@ -27,6 +27,4 @@ AmericanMenu .right.> PaperCup:create
 KoreanMenu .right.> GlassCup:create
 Cup<|--PaperCup
 Cup<|--GlassCup
-' PaperCup--|>Cup
-' GlassCup--|>Cup
 @enduml
